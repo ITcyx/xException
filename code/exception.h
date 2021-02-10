@@ -3,52 +3,59 @@
 
 namespace x
 {
-	// Òì³£´íÎó»ùÀà
+	// å¼‚å¸¸é”™è¯¯åŸºç±»
 	class exception_error
 	{
-	private:
+	protected:
 		std::string msg;
 
 	public:
-		// ¹¹Ôìº¯Êı£¬¿½±´¹¹Ôìº¯Êı£¬Îö¹¹º¯Êı
+		// æ„é€ å‡½æ•°ï¼Œæ‹·è´æ„é€ å‡½æ•°ï¼Œææ„å‡½æ•°
 		exception_error() noexcept;
 		explicit exception_error(const std::string& message) noexcept;
 		exception_error(const exception_error& other_exception_error) noexcept;
 		virtual ~exception_error() noexcept;
 
-		// ¹¦ÄÜº¯Êı
+		// åŠŸèƒ½å‡½æ•°
 		virtual const std::string& get_message() const noexcept;
 
-		// ÖØÔØÔËËã·û
+		// é‡è½½è¿ç®—ç¬¦
 		exception_error& operator=(const exception_error& other_exception_error) noexcept;
 	};
 
 	class argument_error :public exception_error
 	{
-	// ²ÎÊı´íÎó
+	// å‚æ•°é”™è¯¯
 	private:
 		int id;
+
 	public:
-		// ¹¹Ôìº¯Êı£¬¿½±´¹¹Ôìº¯Êı£¬Îö¹¹º¯Êı
+		// æ„é€ å‡½æ•°ï¼Œæ‹·è´æ„é€ å‡½æ•°ï¼Œææ„å‡½æ•°
 		argument_error() noexcept;
 		argument_error(const argument_error& other_argument_error) noexcept;
 		explicit argument_error(const int& argument_error_id) noexcept;
 		explicit argument_error(const std::string& message, const int& argument_error_id = -1) noexcept;
-
 		~argument_error() noexcept;
-		int get_argument_error_id() noexcept;  // µ±Ã»ÓĞÖ¸¶¨ÄÄ¸ö²ÎÊı´íÎóÊ±£¬·µ»Ø-1
 
+		// åŠŸèƒ½æ€§å‡½æ•°
+		int get_argument_error_id() noexcept;  // å½“æ²¡æœ‰æŒ‡å®šå“ªä¸ªå‚æ•°é”™è¯¯æ—¶ï¼Œè¿”å›-1
+
+		// é‡è½½è¿ç®—ç¬¦
+		argument_error& operator=(const argument_error& other_argument_error) noexcept;
 
 	};
 
 	class operation_error :public exception_error
 	{
 	public:
-		const std::string& get_message() const noexcept;
+		// æ„é€ å‡½æ•°
+		operation_error() noexcept;
 	};
 
 	class file_error :public exception_error
 	{
-		const std::string& get_message() const noexcept;
+	public:
+		// æ„é€ å‡½æ•°
+		file_error() noexcept;
 	};
 }
