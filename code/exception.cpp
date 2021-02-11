@@ -94,6 +94,21 @@ x::operation_error::operation_error(std::string const& message) noexcept :except
 
 
 
+x::range_error::range_error() noexcept :exception_error("Range Error!")
+{}
+
+x::range_error::range_error(std::string const& message) noexcept :exception_error(message)
+{}
+
+
+
+
+
+
+
+
+
+
 x::file_error::file_error() noexcept :exception_error("File Error!"), fn("")
 {}
 

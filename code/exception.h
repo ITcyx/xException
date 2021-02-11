@@ -35,7 +35,7 @@ namespace x
 	// 参数异常错误类
 	class argument_error :public exception_error
 	{
-	private:
+	protected:
 		int id;
 
 	public:
@@ -62,13 +62,31 @@ namespace x
 
 
 
-	// 操作常错误类
+	// 操作异常错误类
 	class operation_error :public exception_error
 	{
 	public:
 		// 构造函数、拷贝构造函数
 		operation_error() noexcept;
 		explicit operation_error(std::string const& message) noexcept;
+	};
+
+
+
+
+
+
+
+
+
+
+	// 越界异常错误类
+	class range_error :public exception_error
+	{
+	public:
+		// 构造函数、拷贝构造函数
+		range_error() noexcept;
+		explicit range_error(std::string const& message) noexcept;
 	};
 
 
