@@ -83,14 +83,14 @@ namespace x
 
 
 
-	// ********** range_error **********
-	// 越界异常错误类
-	class range_error :public exception_error
+	// ********** index_error **********
+	// 索引异常错误类
+	class index_error :public exception_error
 	{
 	public:
 		// ---------- 构造函数 ----------
-		range_error() noexcept;
-		explicit range_error(std::string const& message) noexcept;
+		index_error() noexcept;
+		explicit index_error(std::string const& message) noexcept;
 	};
 
 

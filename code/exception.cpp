@@ -108,13 +108,13 @@ x::operation_error::operation_error(std::string const& message) noexcept :except
 
 
 
-// ********** range_error **********
+// ********** index_error **********
 
 // ---------- ¹¹Ôìº¯Êý ----------
-x::range_error::range_error() noexcept :exception_error("Range Error!")
+x::index_error::index_error() noexcept :exception_error("Index Error!")
 {}
 
-x::range_error::range_error(std::string const& message) noexcept :exception_error(message)
+x::index_error::index_error(std::string const& message) noexcept :exception_error(message)
 {}
 
 
