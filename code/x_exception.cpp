@@ -1,9 +1,9 @@
-# include "exception.h"
+# include "x_exception.h"
 
 
-// ********** exception_error ÊµÏÖ **********
+// ********** exception_error å®ç° **********
 
-// ---------- ¹¹Ôì¡¢Îö¹¹º¯Êı ----------
+// ---------- æ„é€ ã€ææ„å‡½æ•° ----------
 x::exception_error::exception_error() noexcept :msg("Unknown Error!")
 {}
 
@@ -19,13 +19,13 @@ x::exception_error::~exception_error() noexcept
 		msg = "";
 }
 
-// ---------- ¹¦ÄÜº¯Êı ----------
+// ---------- åŠŸèƒ½å‡½æ•° ----------
 std::string const& x::exception_error::get_message() const noexcept
 {
 	return msg;
 }
 
-// ---------- ÖØÔØÔËËã·û ----------
+// ---------- é‡è½½è¿ç®—ç¬¦ ----------
 x::exception_error& x::exception_error::operator=(exception_error const& other_exception_error) noexcept
 {
 	if (this == &other_exception_error)
@@ -45,7 +45,7 @@ x::exception_error& x::exception_error::operator=(exception_error const& other_e
 
 // ********** argument_error **********
 
-// ---------- ¹¹Ôì¡¢Îö¹¹º¯Êı ----------
+// ---------- æ„é€ ã€ææ„å‡½æ•° ----------
 x::argument_error::argument_error() noexcept :exception_error("Argument Error!"), id(-1)
 {}
 
@@ -65,13 +65,13 @@ x::argument_error::~argument_error() noexcept
 	id = -1;
 }
 
-// ---------- ¹¦ÄÜĞÔº¯Êı ----------
+// ---------- åŠŸèƒ½æ€§å‡½æ•° ----------
 int x::argument_error::get_argument_id() const noexcept
 {
 	return id;
 }
 
-// ---------- ÖØÔØÔËËã·û ----------
+// ---------- é‡è½½è¿ç®—ç¬¦ ----------
 x::argument_error& x::argument_error::operator=(argument_error const& other_argument_error) noexcept
 {
 	if (this == &other_argument_error)
@@ -92,7 +92,7 @@ x::argument_error& x::argument_error::operator=(argument_error const& other_argu
 
 // ********** operation_error **********
 
-// ---------- ¹¹Ôìº¯Êı ----------
+// ---------- æ„é€ å‡½æ•° ----------
 x::operation_error::operation_error() noexcept :exception_error("Operation Error!")
 {}
 
@@ -110,7 +110,7 @@ x::operation_error::operation_error(std::string const& message) noexcept :except
 
 // ********** index_error **********
 
-// ---------- ¹¹Ôìº¯Êı ----------
+// ---------- æ„é€ å‡½æ•° ----------
 x::index_error::index_error() noexcept :exception_error("Index Error!")
 {}
 
@@ -128,7 +128,7 @@ x::index_error::index_error(std::string const& message) noexcept :exception_erro
 
 // ********** file_error **********
 
-// ---------- ¹¹Ôì¡¢Îö¹¹º¯Êı ----------
+// ---------- æ„é€ ã€ææ„å‡½æ•° ----------
 x::file_error::file_error() noexcept :exception_error("File Error!"), fn("")
 {}
 
@@ -149,13 +149,13 @@ x::file_error::~file_error() noexcept
 		msg = "";
 }
 
-// ---------- ¹¦ÄÜĞÔº¯Êı ----------
+// ---------- åŠŸèƒ½æ€§å‡½æ•° ----------
 std::string const& x::file_error::get_file_name() const noexcept
 {
 	return fn;
 }
 
-// ---------- ÖØÔØÔËËã·û ----------
+// ---------- é‡è½½è¿ç®—ç¬¦ ----------
 x::file_error& x::file_error::operator=(file_error const& other_file_error) noexcept
 {
 	if (this == &other_file_error)
@@ -176,7 +176,7 @@ x::file_error& x::file_error::operator=(file_error const& other_file_error) noex
 
 // ********** file_open_error **********
 
-// ---------- ¹¹Ôì¡¢Îö¹¹º¯Êı ----------
+// ---------- æ„é€ ã€ææ„å‡½æ•° ----------
 x::file_open_error::file_open_error() noexcept :file_error("File Opern Error!")
 {}
 
@@ -196,7 +196,7 @@ x::file_open_error::file_open_error(std::string const& message, std::string cons
 
 // ********** file_read_error **********
 
-// ---------- ¹¹Ôìº¯Êı ----------
+// ---------- æ„é€ å‡½æ•° ----------
 x::file_read_error::file_read_error() noexcept :file_error("File Read Error!")
 {}
 
@@ -217,7 +217,7 @@ x::file_read_error::file_read_error(std::string const& message, std::string cons
 
 // ********** file_write_error **********
 
-// ---------- ¹¹Ôìº¯Êı ----------
+// ---------- æ„é€ å‡½æ•° ----------
 x::file_write_error::file_write_error() noexcept :file_error("File Write Error!")
 {}
 
