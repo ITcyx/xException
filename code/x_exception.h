@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef X_EXCEPTION_H
+#define X_EXCEPTION_H
+
 #include <string>
 
 namespace x
@@ -184,3 +188,5 @@ namespace x
 		explicit file_write_error(std::string const& message, std::string const& file_name) noexcept;
 	};
 }
+
+#endif
